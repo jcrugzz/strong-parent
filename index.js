@@ -61,7 +61,7 @@ StrongParent.prototype._onRes = function (message) {
     return this.stream.emit('error', new Error('No Filepath found, child must return __file parameter'));
   }
 
-  if (Object.keys(message) > 1) {
+  if (Object.keys(message).length > 1) {
     delete message.__file;
     this.stream.emit('response', message);
   }
