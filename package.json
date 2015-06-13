@@ -35,7 +35,7 @@
     "json-stream": "^1.0.0",
     "list-stream": "^1.0.0",
     "stringify-stream": "^1.0.2",
-    "strong-child": "0.0.1",
+    "strong-child": "^1.0.0",
     "tape": "^4.0.0",
     "through2": "^2.0.0"
   }
