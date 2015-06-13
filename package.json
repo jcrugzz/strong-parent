@@ -1,0 +1,42 @@
+{
+  "name": "strong-parent",
+  "version": "1.0.0",
+  "description": "A duplex stream for piping a stream of data for a child to process",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/*-test.js | faucet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jcrugzz/strong-parent.git"
+  },
+  "keywords": [
+    "duplex",
+    "child",
+    "parent",
+    "stream",
+    "data",
+    "processing"
+  ],
+  "author": "Jarrett Cruger <jcrugzz@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jcrugzz/strong-parent/issues"
+  },
+  "homepage": "https://github.com/jcrugzz/strong-parent",
+  "dependencies": {
+    "after": "^0.8.1",
+    "duplexify": "^3.4.1",
+    "fork": "^1.2.0",
+    "uuid": "^2.0.1"
+  },
+  "devDependencies": {
+    "faucet": "0.0.1",
+    "json-stream": "^1.0.0",
+    "list-stream": "^1.0.0",
+    "stringify-stream": "^1.0.2",
+    "strong-child": "0.0.1",
+    "tape": "^4.0.0",
+    "through2": "^2.0.0"
+  }
+}
