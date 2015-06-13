@@ -1,5 +1,8 @@
 # strong-parent
 
+[![build
+status](https://secure.travis-ci.org/jcrugzz/strong-parent.svg)](http://travis-ci.org/jcrugzz/strong-parent)
+
 Have you ever wanted to pipe a byte-stream to a child process but got hung up
 with IPC bugs? Well look no further! In combination with
 [`strong-child`](https://github.com/jcrugzz/strong-child) we provide an
