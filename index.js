@@ -38,20 +38,26 @@ function StrongParent(options) {
   //
   // Setup forking of child to do the processing
   //
-  this.fork = new Fork({
+  this.child = new Fork({
     path: this.childPath,
     args: this.childArgs,
     env: this.childEnv
-  }).fork(extend({ __file: this.filePath }, this.payload))
-    .on('response', this._onRes.bind(this))
+  }).on('response', this._onRes.bind(this))
     .on('log', this.stream.emit.bind(this.stream, 'log'))
     .on('error', this.stream.emit.bind(this.stream, 'error'));
 
-  this.stream.setWritable(fs.createWriteStream(this.filePath));
+  this.writable = fs.createWriteStream(this.filePath)
+    .on('finish', this._forkProc.bind(this));
 
+  this.stream.setWritable(this.writable);
 
   return this.stream;
 }
+
+StrongParent.prototype._forkProc = function () {
+  this.writable = null;
+  this.child.fork(extend({ __file: this.filePath }, this.payload));
+};
 
 StrongParent.prototype._onRes = function (message) {
 
