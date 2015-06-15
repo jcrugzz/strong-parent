@@ -31,6 +31,8 @@ function StrongParent(options) {
   this.childPath = this.childPath || options.path;
   this.childArgs = options.args;
   this.childEnv = options.env;
+  this.execPath = options.execPath;
+  this.execArgv = options.execArgv;
   this.payload = options.payload || {};
 
   this.stream = duplexify();
@@ -41,7 +43,9 @@ function StrongParent(options) {
   this.child = new Fork({
     path: this.childPath,
     args: this.childArgs,
-    env: this.childEnv
+    env: this.childEnv,
+    execPath: this.execPath,
+    execArgv: this.execArgv
   }).on('response', this._onRes.bind(this))
     .on('log', this.stream.emit.bind(this.stream, 'log'))
     .on('error', this.stream.emit.bind(this.stream, 'error'));
