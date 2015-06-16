@@ -1,6 +1,6 @@
 {
   "name": "strong-parent",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A duplex stream for piping a stream of data for a child to process",
   "main": "index.js",
   "scripts": {
